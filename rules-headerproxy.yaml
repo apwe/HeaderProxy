@@ -1,0 +1,40 @@
+http:
+  # Add routers
+  routers:
+    my-router:
+      entryPoints:
+      - http
+      middlewares:
+      - headerproxy
+      service: service-whoami
+      rule: Path(`/whoami`)
+
+  # Add service
+  services:
+    service-whoami:
+      loadBalancer:
+        servers:
+        - url: http://localhost:5000/
+      passHostHeader: false
+  middlewares:
+    headerproxy:
+      plugin:
+        dev:
+          Headers:
+            TenantHeader: 'HeaderWithServiceName'
+            ServiceHeader: 'HeaderWithTenantName'
+          Tenants:
+            foo:
+              Services:
+                ServiceA: 
+                  Origin: 'https://example-a.com'
+                ServiceB: 
+                  Origin: 'https://example-b.com'
+                ServiceC: 
+                  Origin: 'https://example-c.com'
+            bar:
+              Services:
+                ServiceA: 
+                  Origin: 'https://example-a.com'
+                ServiceB: 
+                  Origin: 'https://example-b.com'

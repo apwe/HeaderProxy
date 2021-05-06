@@ -1,0 +1,27 @@
+displayName: Demo Plugin
+
+type: middleware
+
+import: github.com/apwe/headerproxy
+
+summary: 'Proxy requests based on header values'
+
+testData:
+  Headers:
+    TenantHeader: 'HeaderWithServiceName'
+    ServiceHeader: 'HeaderWithTenantName'
+  Tenants:
+    foo:
+      Services:
+        ServiceA: 
+          Origin: 'https://example-a.com'
+        ServiceB: 
+          Origin: 'https://example-b.com'
+        ServiceC: 
+          Origin: 'https://example-c.com'
+    bar:
+      Services:
+        ServiceA: 
+          Origin: 'https://example-a.com'
+        ServiceB: 
+          Origin: 'https://example-b.com'
