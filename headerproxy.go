@@ -11,7 +11,6 @@ import (
 // Service struct
 type Service struct {
 	Destination string `yaml:"Destination"`
-	Auth   string `yaml:"Auth,omitempty"`
 }
 
 // Tenant struct
@@ -84,9 +83,5 @@ func ProxyReq(rw http.ResponseWriter, req *http.Request, service Service) {
 	}
 
 	proxy := &httputil.ReverseProxy{Director: director}
-	// log.Println("Making a request:")
-	// log.Println("#################")
-	// log.Println(req)
-	// log.Println("#################")
 	proxy.ServeHTTP(rw, req)
 }
