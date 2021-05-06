@@ -14,14 +14,14 @@ testData:
     foo:
       Services:
         ServiceA: 
-          Origin: 'https://example-a.com'
+          Destination: 'https://example-a.com'
         ServiceB: 
-          Origin: 'https://example-b.com'
+          Destination: 'https://example-b.com'
         ServiceC: 
-          Origin: 'https://example-c.com'
+          Destination: 'https://example-c.com'
     bar:
       Services:
         ServiceA: 
-          Origin: 'https://example-a.com'
+          Destination: 'https://example-a.com'
         ServiceB: 
-          Origin: 'https://example-b.com'
+          Destination: 'https://example-b.com'
