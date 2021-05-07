@@ -31,7 +31,7 @@ $ docker run -d --network host containous/whoami -port 5000
 ```
 ## How to use
 
-## Headers
+### Headers
 
 Provide header names:
 - 'TenantHeader'  : a header controlling the tenant that the requests will be proxied to 
@@ -46,7 +46,7 @@ Provide header names:
 So, in order to match the configuration, you need to hit traefik with a request containing 'Tenant: tenant-name' and 'Service: service-name' headers.
 
 
-## Tenants
+### Tenants
 
 Provide tenant names as the keys - these are the values of your 'TenantHeader: $$$%%#^$' header passed to traefik:
 
@@ -58,7 +58,7 @@ Provide tenant names as the keys - these are the values of your 'TenantHeader: $
 ...
 ```
 
-## Services
+### Services
 
 Provide service names as the keys - these are the values of your 'ServiceHeader: &$^#$&#$' header passed to traefik
 
@@ -81,7 +81,7 @@ Provide service names as the keys - these are the values of your 'ServiceHeader:
 ...
 ```
 
-## Destination
+### Destination
 
 Provide value to the 'Destination' key with the url of the service you want to proxy the requests.
 urls MUST contain protocol scheme, as the plugin is parsing the url and using the scheme in the communication.
