@@ -66,6 +66,8 @@ func (u *HostReplacement) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 			service, ServiceHeaderExist := tenant.Services[req.Header.Get(header.ServiceHeader)]
 			if ServiceHeaderExist {
 				ProxyReq(rw, req, service)
+			} else {
+				u.next.ServeHTTP(rw, req)
 			}
 		} else {
 			u.next.ServeHTTP(rw, req)
